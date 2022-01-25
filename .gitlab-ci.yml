@@ -1,0 +1,30 @@
+variables:
+  NPM_MIRROR: https://registry.npmmirror.com
+
+stages:
+  - test
+
+default:
+  image: registry.gitlab.huajitech.net:5050/funnysyc/seamster
+
+  cache:
+    paths:
+      - .cache/pip
+      - $HOME/.npm
+      - $HOME/.cache
+
+  before_script:
+    - python -V
+    - node -v
+
+test:
+  stage: test
+  only:
+    changes:
+      - cyan/**/*
+      - example/**/*
+  script:
+    - poetry install
+    - poetry run pyright
+    - poetry run flake8
+
