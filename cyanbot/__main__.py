@@ -1,17 +1,18 @@
+import sys
 from concap import CommandTree
 
 COMMANDS_HELP = """
-Commands:
-    help                    show help message
-    new/create/init         create a new project
-    run                     run an instance
-    plugin                  manage plugins
+命令:
+    help                    显示帮助信息
+    new/create/init         创建新项目实例
+    run                     运行实例
+    plugin                  管理插件
 """
 
 HELP = f"""
-cyanbot - An integrated manager for Cyan Python SDK for QQ Bot
+cyanbot - 基于 Cyan SDK 的 QQ 机器人集成式管理工具
 
-usage: cyanbot [command] [arguments]
+usage: cyanbot [命令] [参数]
 {COMMANDS_HELP}
 """
 
@@ -26,6 +27,7 @@ ctree = CommandTree()
 @ctree.add_command("help")
 def get_help(tree, _, arg):
     tree.print(COMMANDS_HELP)
+    tree.print("    exit                    退出程序\n")
 
 
 @ctree.add_command("init")
@@ -45,4 +47,12 @@ def manage_plugins(tree, _, arg):
     pass
 
 
-ctree.interactive()
+@ctree.add_command("exit")
+def exit_prog(tree, *_):
+    tree.run_command("logout", "")
+
+
+if len(sys.argv) < 2:
+    ctree.interactive()
+else:
+    ctree.run_command(sys.argv[1], "\t".join(sys.argv[2:]))
