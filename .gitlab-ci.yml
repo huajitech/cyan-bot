@@ -21,8 +21,7 @@ test:
   stage: test
   only:
     changes:
-      - cyan/**/*
-      - example/**/*
+      - cyanbot/**/*
   script:
     - poetry install
     - poetry run pyright
