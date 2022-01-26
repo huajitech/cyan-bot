@@ -37,4 +37,11 @@ if runtime is None:
 
 session = runtime.session
     """.strip(),
+
+    "INIT": """
+# 该文件用于控制该目录下插件的导入。
+# 你可以自己控制想导入的插件。
+# 若想导入该目录下的所有插件，可以取消注释下面一行：
+# from . import *
+    """.strip()
 }
