@@ -6,8 +6,6 @@ CORE = {
 # import cyan
 
 from cyan import Session, Ticket
-from cyan.event import ChannelMessageReceivedEvent
-from cyan.model import ChannelMessage
     """.strip(),
 
     "SESSION": """
