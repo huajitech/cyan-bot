@@ -1,6 +1,6 @@
 from cyan import Session
 from cyanbot.plugin import Plugin
-from typing import Optional, Dict, Any, Set
+from typing import Optional, Dict, Any
 
 
 class Context:
@@ -13,23 +13,22 @@ class Context:
     """
     session: Session
     env: Dict[str, Any]
-    plugins: Set[Plugin]
+    plugins: Dict[str, Plugin]
 
     def __init__(self, session: Session, env: Optional[Dict[str, Any]] = None):
         self.session = session
         self.env = env if env else {}
-        self.plugins = set()
-
-    def register_plugin(self, plugin: Plugin) -> None:
-        for pl in self.plugins:
-            if plugin.name == pl.name:
-                raise NameError(f"There's already a plugin named '{pl.name}'")
-        self.plugins.add(plugin)
+        self.plugins = {}
 
     def find_plugin_by_name(self, name: str) -> Optional[Plugin]:
         for pl in self.plugins:
-            if pl.name == name:
+            if self.plugins[pl].name == name:
                 return pl
+
+    def register_plugin(self, plugin: Plugin) -> None:
+        if self.find_plugin_by_name(plugin.name):
+            raise ValueError(f"There's already a plugin named '{plugin.name}'")
+        self.plugins[plugin.name] = plugin
 
 
 context: Optional[Context] = None
