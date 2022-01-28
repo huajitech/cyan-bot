@@ -23,7 +23,7 @@ class Context:
     def find_plugin_by_name(self, name: str) -> Optional[Plugin]:
         for pl in self.plugins:
             if self.plugins[pl].name == name:
-                return pl
+                return self.plugins[pl]
 
     def register_plugin(self, plugin: Plugin) -> None:
         if self.find_plugin_by_name(plugin.name):
