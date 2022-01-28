@@ -1,6 +1,7 @@
 import sys
 import warnings
 from concap import CommandTree
+from . import instance
 
 COMMANDS_HELP: str = """
 命令:
@@ -38,7 +39,19 @@ def get_help(tree: CommandTree, cmd: str, arg: str) -> None:
 @ctree.add_command("create")
 @ctree.add_command("new")
 def new_instance(tree: CommandTree, _, arg: str) -> None:
-    pass
+    basedir = input("请输入实例路径（留空则为当前路径）: ")
+    if not basedir:
+        basedir = None
+    app_url = input("请输入 APP URL: ")
+    app_id = input("请输入 APP ID: ")
+    token = input("请输入 token: ")
+    if not app_url or not app_id or not token:
+        raise ValueError("'app_url', 'app_id', 'token' 不能为空")
+    tree.print("正在生成实例目录......")
+    instance.gen_base_file(basedir)
+    tree.print("正在生成 bot.py......")
+    instance.gen_bot_py(app_url, app_id, token, basedir)
+    tree.print("完成！")
 
 
 @ctree.add_command("run")
@@ -62,4 +75,4 @@ def exit_prog(tree: CommandTree, cmd: str, arg: str) -> None:
 if len(sys.argv) < 2:
     ctree.interactive()
 else:
-    ctree.run_command(sys.argv[1], "\t".join(sys.argv[2:]))
+    ctree.run_command(sys.argv[1], "  ".join(sys.argv[2:]))

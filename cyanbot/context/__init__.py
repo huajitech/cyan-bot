@@ -21,9 +21,7 @@ class Context:
         self.plugins = {}
 
     def find_plugin_by_name(self, name: str) -> Optional[Plugin]:
-        for pl in self.plugins:
-            if self.plugins[pl].name == name:
-                return self.plugins[pl]
+        return self.plugins.get(name, None)
 
     def register_plugin(self, plugin: Plugin) -> None:
         if self.find_plugin_by_name(plugin.name):

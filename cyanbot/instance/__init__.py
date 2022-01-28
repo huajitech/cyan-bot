@@ -9,7 +9,7 @@ def gen_base_file(basedir: Optional[str] = None):
 
     plugs_dir = path.join(basedir, "plugins")
     makedirs(plugs_dir)
-    with open(path.join(plugs_dir, "__init__.py")) as f:
+    with open(path.join(plugs_dir, "__init__.py"), "w") as f:
         f.write(template.PLUGIN["INIT"])
 
 
@@ -42,5 +42,5 @@ def gen_plugin(
     if basedir is None:
         basedir = path.join(curdir, "plugins", name)
 
-    with open(path.join(basedir, "__init__.py")) as f:
+    with open(path.join(basedir, "__init__.py"), "w") as f:
         f.write(template.PLUGIN["IMPORT"].format(name))
