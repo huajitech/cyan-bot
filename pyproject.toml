@@ -15,7 +15,7 @@ include = ["cyanbot/py.typed"]
 [tool.poetry.dependencies]
 python = "^3.7"
 cyansdk = "^0.2.0"
-concap = "^0.1.0"
+concap = "^0.2.1"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"

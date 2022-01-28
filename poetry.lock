@@ -52,7 +52,7 @@ reference = "tsinghua"
 
 [[package]]
 name = "concap"
-version = "0.1.0"
+version = "0.2.1"
 description = "An interactive console implement."
 category = "main"
 optional = false
@@ -372,7 +372,7 @@ reference = "tsinghua"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "d2551bb123384281af307dcd90ea2807a724411b943145f8cd08506f71513206"
+content-hash = "3a1643d2107f29bea5e77710e594ce4f9cf748466a35a4f49a2e5f20d9501288"
 
 [metadata.files]
 anyio = [
@@ -388,8 +388,8 @@ charset-normalizer = [
     {file = "charset_normalizer-2.0.10-py3-none-any.whl", hash = "sha256:cb957888737fc0bbcd78e3df769addb41fd1ff8cf950dc9e7ad7793f1bf44455"},
 ]
 concap = [
-    {file = "concap-0.1.0-py3-none-any.whl", hash = "sha256:a093b8f2c043bb679cfc5c803c18d9efabad5885c30a21b93bcf8f7f27dfaba7"},
-    {file = "concap-0.1.0.tar.gz", hash = "sha256:f9d024d623a09dbdaeeaf69a187b265a449803695dfe1ae696458b18a5bdda68"},
+    {file = "concap-0.2.1-py3-none-any.whl", hash = "sha256:4f1bb64fd773e2b172c3de6ed5870289adbe9924458aa1a8a0a90431b1705f7c"},
+    {file = "concap-0.2.1.tar.gz", hash = "sha256:c72f5871cd5a870d8b00fd2b9a5b9f2b3836d4db754c97e1ebe0acf325f1945d"},
 ]
 cyansdk = [
     {file = "cyansdk-0.2.0-py3-none-any.whl", hash = "sha256:3ea78b55edac64558e3718e2aa3eb18209e2b8e0ecc0cdd68cd96991f52c36cb"},
