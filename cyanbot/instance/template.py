@@ -34,11 +34,25 @@ PLUGIN = {
 # import cyan
 
 from cyanbot.context import context
+from cyanbot.plugin import Plugin
 
 if context is None:
     raise Exception("Cyanbot is not running! You should start 'bot.py'.")
 
-session = context.session
+# session = context.session
+# env = context.envfb
+
+plugin = Plugin("插件名称", "介绍")
+
+# plugin.set_data("data")("data")
+# @plugin.set_data("func")
+# def func(x, y):
+#     print(x, y)
+
+# 你的代码
+# ...
+
+context.register_plugin(plugin)
     """.strip(),
 
     "INIT": """
