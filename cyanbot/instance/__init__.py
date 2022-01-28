@@ -3,7 +3,7 @@ from typing import Optional
 from os import path, curdir, makedirs
 
 
-def gen_base_file(basedir: Optional[str]):
+def gen_base_file(basedir: Optional[str] = None):
     if basedir is None:
         basedir = curdir
 
@@ -32,5 +32,15 @@ def gen_bot_py(
         f.write(template.CORE["RUN"])
 
 
-def gen_plugin():
-    pass
+def gen_plugin(
+    *,
+    basedir: Optional[str] = None,
+    name: Optional[str] = None
+):
+    if name is None:
+        name = "插件名称"
+    if basedir is None:
+        basedir = path.join(curdir, "plugins", name)
+
+    with open(path.join(basedir, "__init__.py")) as f:
+        f.write(template.PLUGIN["IMPORT"].format(name))

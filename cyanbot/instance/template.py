@@ -42,7 +42,7 @@ if context is None:
 # session = context.session
 # env = context.envfb
 
-plugin = Plugin("插件名称", "介绍")
+plugin = Plugin("{0}", "介绍")
 
 # plugin.set_data("data")("data")
 # @plugin.set_data("func")
