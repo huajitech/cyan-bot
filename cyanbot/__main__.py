@@ -25,7 +25,7 @@ ctree = CommandTree()
 
 
 @ctree.add_command("help")
-def get_help(tree, _, arg):
+def get_help(tree: CommandTree, _, arg: str):
     tree.print(COMMANDS_HELP)
     tree.print("    exit                    退出程序\n")
 
@@ -33,22 +33,22 @@ def get_help(tree, _, arg):
 @ctree.add_command("init")
 @ctree.add_command("create")
 @ctree.add_command("new")
-def new_instance(tree, _, arg):
+def new_instance(tree: CommandTree, _, arg: str):
     pass
 
 
 @ctree.add_command("run")
-def run_instance(tree, _, arg):
+def run_instance(tree: CommandTree, _, arg: str):
     pass
 
 
 @ctree.add_command("plugin")
-def manage_plugins(tree, _, arg):
+def manage_plugins(tree: CommandTree, _, arg: str):
     pass
 
 
 @ctree.add_command("exit")
-def exit_prog(tree, *_):
+def exit_prog(tree: CommandTree, *_):
     tree.run_command("logout", "")
 
 

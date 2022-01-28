@@ -1,5 +1,5 @@
 from cyan import Session
-from .plugin import Plugin
+from cyanbot.plugin import Plugin
 from typing import Optional
 
 
