@@ -3,7 +3,7 @@ from cyanbot.plugin import Plugin
 from typing import Optional
 
 
-class Runtime:
+class Context:
     """
     机器人运行环境
 
@@ -17,9 +17,9 @@ class Runtime:
         pass
 
 
-runtime: Optional[Runtime] = None
+context: Optional[Context] = None
 
 
-def init_runtime(session: Session):
-    global runtime
-    runtime = Runtime(session)
+def init_context(session: Session):
+    global context
+    context = Context(session)
