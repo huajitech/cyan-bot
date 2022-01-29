@@ -4,6 +4,8 @@ from concap import CommandTree
 from cyanbot import instance
 
 COMMANDS_HELP: str = """
+cyanbot - 基于 Cyan SDK 的 QQ 机器人集成式管理工具
+
 命令:
     help                    显示帮助信息
     new/create/init         创建新项目实例
@@ -13,8 +15,6 @@ COMMANDS_HELP: str = """
 """
 
 HELP: str = f"""
-cyanbot - 基于 Cyan SDK 的 QQ 机器人集成式管理工具
-
 使用方法: cyanbot [命令] [参数]
 {COMMANDS_HELP}
 """
