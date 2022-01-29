@@ -1,4 +1,4 @@
-from . import template
+from cyanbot.instance import template
 from typing import Optional
 from os import path, curdir, makedirs
 
@@ -24,7 +24,7 @@ def gen_bot_py(
         f.write(template.CORE["IMPORT"])
         f.write("\n\n")
         f.write(template.CORE["CONFIG"].format(
-            (app_url, app_id, token)
+            app_url, app_id, token
         ))
         f.write("\n\n")
         f.write(template.CORE["SESSION"])

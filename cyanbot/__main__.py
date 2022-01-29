@@ -1,7 +1,7 @@
 import sys
 import warnings
 from concap import CommandTree
-from . import instance
+from cyanbot import instance
 
 COMMANDS_HELP: str = """
 命令:
