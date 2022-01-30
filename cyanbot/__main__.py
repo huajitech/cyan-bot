@@ -39,18 +39,8 @@ def get_help(tree: CommandTree, cmd: str, arg: str) -> None:
 @ctree.add_command("create")
 @ctree.add_command("new")
 def new_instance(tree: CommandTree, _, arg: str) -> None:
-    basedir = input("请输入实例路径（留空则为当前路径）: ")
-    if not basedir:
-        basedir = None
-    app_url = input("请输入 APP URL: ")
-    app_id = input("请输入 APP ID: ")
-    token = input("请输入 token: ")
-    if not app_url or not app_id or not token:
-        raise ValueError("'app_url', 'app_id', 'token' 不能为空")
-    tree.print("正在生成实例目录......")
-    instance.gen_base_file(basedir)
-    tree.print("正在生成 bot.py......")
-    instance.gen_bot_py(app_url, app_id, token, basedir)
+    tree.print("正在生成实例......")
+    instance.gen_base_file()
     tree.print("完成！")
 
 
