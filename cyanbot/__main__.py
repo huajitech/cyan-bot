@@ -2,6 +2,7 @@ import sys
 import warnings
 from concap import CommandTree
 from cyanbot import instance
+from cyanbot.instance import manager
 
 COMMANDS_HELP: str = """
 cyanbot - 基于 Cyan SDK 的 QQ 机器人集成式管理工具
@@ -51,7 +52,8 @@ def run_instance(tree: CommandTree, _, arg: str) -> None:
 
 @ctree.add_command("plugin")
 def manage_plugins(tree: CommandTree, _, arg: str) -> None:
-    pass
+    args = [a for a in arg.split(" ") if a]
+    manager.plugin(*args)
 
 
 @ctree.add_command("exit")
