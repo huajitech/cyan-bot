@@ -64,9 +64,11 @@ def exit_prog(tree: CommandTree, cmd: str, arg: str) -> None:
     tree.run_command("logout", "")
 
 
-ctree.run_command("help", "")
+def main():
+    if len(sys.argv) < 2:
+        ctree.run_command("help", "")
+        ctree.interactive()
+    else:
+        ctree.run_command(sys.argv[1], "  ".join(sys.argv[2:]))
 
-if len(sys.argv) < 2:
-    ctree.interactive()
-else:
-    ctree.run_command(sys.argv[1], "  ".join(sys.argv[2:]))
+main()
