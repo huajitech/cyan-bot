@@ -1,5 +1,7 @@
+import subprocess
 import sys
 import warnings
+from os import path, curdir, listdir
 from concap import CommandTree
 from cyanbot import instance
 from cyanbot.instance import manager
@@ -47,7 +49,18 @@ def new_instance(tree: CommandTree, _, arg: str) -> None:
 
 @ctree.add_command("run")
 def run_instance(tree: CommandTree, _, arg: str) -> None:
-    pass
+    if path.exists("bot.py"):
+        botdir = curdir
+    else:
+        botdir = input("请输入 bot 实例路径：")
+        if path.isfile(botdir):
+            botdir, name = path.split(botdir)
+            if name != "bot.py":
+                raise ValueError("无效路径")
+        else:
+            if "bot.py" not in listdir(botdir):
+                raise ValueError("无效路径")
+    subprocess.run(["python", path.join(botdir, "bot.py")])
 
 
 @ctree.add_command("plugin")
