@@ -84,4 +84,5 @@ def main():
     else:
         ctree.run_command(sys.argv[1], "  ".join(sys.argv[2:]))
 
-main()
+if __name__ == "__main__":
+    main()
