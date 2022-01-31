@@ -10,15 +10,15 @@ class Plugin:
     """
     name: str
     desc: Optional[str]
-    export: Dict[str, Any]
+    exported: Dict[str, Any]
 
     def __init__(self, name: str, desc: Optional[str] = None):
         self.name = name
         self.desc = desc if desc else ""
-        self.export = {}
+        self.exported = {}
 
-    def set_data(self, name: str) -> Callable[[Any], Any]:
-        def _set_data(data: Any):
-            self.export[name] = data
+    def export(self, name: str) -> Callable[[Any], Any]:
+        def _export(data: Any):
+            self.exported[name] = data
             return data
-        return _set_data
+        return _export
