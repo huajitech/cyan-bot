@@ -13,6 +13,7 @@ def print_help(tree: CommandTree, _, arg: str) -> None:
 命令:
     help                    输出此帮助信息
     new/create/init         创建新插件
+    exit                    退出程序
 """
     )
 
@@ -24,7 +25,7 @@ def new_instance(tree: CommandTree, _, arg: str) -> None:
     if path.exists("bot.py"):
         botdir = curdir
     else:
-        botdir = tree.input("请输入 bot 实例路径：")
+        botdir = input("请输入 bot 实例路径：")
         if path.isfile(botdir):
             botdir, name = path.split(botdir)
             if name != "bot.py":
