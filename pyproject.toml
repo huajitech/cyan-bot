@@ -38,3 +38,6 @@ reportImportCycles = "none"
 name = "tsinghua"
 url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
 default = true
+
+[[tool.poetry.scripts]]
+cyanbot = "cyanbot.__main__:main"
