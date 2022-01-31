@@ -6,16 +6,19 @@ from typing import Optional, Dict, Any
 class Context:
     """
     机器人运行环境。
-
-    参数:
-        session: 会话对象
-        env: 环境变量
     """
     session: Session
     env: Dict[str, Any]
     plugins: Dict[str, Plugin]
 
     def __init__(self, session: Session, env: Optional[Dict[str, Any]] = None):
+        """
+        初始化运行环境。
+
+        参数:
+            session: 会话对象
+            env: 环境变量
+        """
         self.session = session
         self.env = env if env else {}
         self.plugins = {}

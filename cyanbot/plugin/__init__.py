@@ -4,16 +4,19 @@ from typing import Callable, Dict, Any, Optional
 class Plugin:
     """
     cyanbot 插件类。
-
-    初始化参数:
-        name: 插件名称
-        desc: 插件介绍（可选）
     """
     name: str
     desc: Optional[str]
     exported: Dict[str, Any]
 
     def __init__(self, name: str, desc: Optional[str] = None):
+        """
+        初始化插件。
+
+        参数:
+            name: 插件名称
+            desc: 插件介绍（可选）
+        """
         self.name = name
         self.desc = desc if desc else ""
         self.exported = {}
