@@ -4,6 +4,12 @@ from cookiecutter.main import cookiecutter  # type: ignore
 
 
 def gen_base_file(basedir: Optional[str] = None):
+    """
+    生成实例基本文件。
+
+    参数:
+        basedir: 生成实例的根路径
+    """
     workdir = None
     if basedir:
         workdir = path.abspath(curdir)
@@ -16,6 +22,12 @@ def gen_base_file(basedir: Optional[str] = None):
 
 
 def gen_plugin(basedir: Optional[str] = None):
+    """
+    生成插件基本文件。
+
+    参数:
+        basedir: 生成插件的根路径
+    """
     workdir = None
     if basedir:
         workdir = path.abspath(curdir)
